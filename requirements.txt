@@ -1,0 +1,9 @@
+mteb
+datasets
+transformers
+vllm==0.4.3
+pandas
+sentence_transformers==3.0.1
+pyserini
+faiss-cpu
+einops

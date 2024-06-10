@@ -1,0 +1,5 @@
+indexes/
+get_a100.sh
+*.tsv
+artifacts
+results

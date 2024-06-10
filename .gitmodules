@@ -1,0 +1,3 @@
+[submodule "mteb_repo"]
+	path = mteb_repo
+	url = ./mteb_repo/

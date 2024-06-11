@@ -1,8 +1,12 @@
 ### Downsampling MTEB Retrieval Datasets
 
 
+## To Reproduce (two steps)
+0. Install a python (3.10+) enviroment with requirements.txt
+1. Run `bash run_all.sh mteb/trec-covid intfloat/e5-large-v2 1024 mteb_repo/mteb/tasks/Retrieval/eng/TRECCOVIDRetrieval.py` switching out the datasets and models you prefer.
 
-## To Reproduce
+
+## To Reproduce (step by step)
 0. Install a python (3.10+) enviroment with requirements.txt
 1. Start by embedding a corpus so we can search for the top results: `python embed_corpus.py --dataset DATASET --model MODEL`
 2. Convert the embeddings to faiss so we can search with pyserini `bash convert_to_faiss.sh PATH_TO_EMBEDDING.json DIM_SIZE`

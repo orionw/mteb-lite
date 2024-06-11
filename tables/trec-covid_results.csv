@@ -1,0 +1,8 @@
+model_name,trec_covid_top_100_only,trec_covid_top_100_only_w_correct,trec_covid_top_10_only,trec_covid_top_10_only_w_correct,trec_covid_top_2_only,trec_covid_top_2_only_w_correct,trec_covid_top_500_only,trec_covid_top_500_only_w_correct,trec_covid_top_50_only,trec_covid_top_50_only_w_correct,trec_covid_top_5_only,trec_covid_top_5_only_w_correct
+Alibaba-NLP--gte-base-en-v1.5,0.68057,0.68057,0.66723,0.66723,0.75437,0.75437,0.72322,0.72322,0.67711,0.67711,0.65133,0.65133
+BAAI--bge-large-en-v1.5,0.61883,0.61883,0.62724,0.62724,0.67237,0.67237,0.64256,0.64256,0.62155,0.62155,0.62825,0.62825
+Salesforce--SFR-Embedding-Mistral,0.70783,0.70783,0.64892,0.64892,0.73875,0.73875,0.76597,0.76597,0.64687,0.64687,0.66927,0.66927
+facebook--contriever-msmarco,0.4204,0.4204,0.47931,0.47931,0.58774,0.58774,0.42146,0.42146,0.42213,0.42213,0.4877,0.4877
+intfloat--e5-large-v2,0.65858,0.65858,0.60953,0.60953,0.71132,0.71132,0.66362,0.66362,0.64307,0.64307,0.61955,0.61955
+intfloat--e5-mistral-7b-instruct,0.66214,0.66214,0.60446,0.60446,0.68418,0.68418,0.72408,0.72408,0.6019,0.6019,0.6171,0.6171
+nvidia--NV-Embed-v1,0.75588,0.75588,0.67189,0.67189,0.7665,0.7665,0.80867,0.80867,0.68829,0.68829,0.66254,0.66254

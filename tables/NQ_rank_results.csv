@@ -1,0 +1,5 @@
+,model_name,NQ
+0,Alibaba-NLP--gte-base-en-v1.5,2.0
+1,BAAI--bge-large-en-v1.5,3.0
+2,facebook--contriever-msmarco,4.0
+3,intfloat--e5-large-v2,1.0

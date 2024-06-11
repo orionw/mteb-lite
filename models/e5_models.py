@@ -57,7 +57,7 @@ class E5RetrievalModel(DRESModel):
     @torch.no_grad()
     def _do_encode(self, input_texts: List[str]) -> np.ndarray:
         encoded_embeds = []
-        batch_size = 12 * self.gpu_count
+        batch_size = 6 * self.gpu_count
         for start_idx in tqdm.tqdm(range(0, len(input_texts), batch_size), desc='encoding', mininterval=10):
             batch_input_texts: List[str] = input_texts[start_idx: start_idx + batch_size]
 

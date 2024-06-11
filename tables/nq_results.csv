@@ -1,0 +1,5 @@
+model_name,nq_top_100_only,nq_top_100_only_w_correct,nq_top_10_only,nq_top_10_only_w_correct,nq_top_2_only,nq_top_2_only_w_correct,nq_top_500_only,nq_top_500_only_w_correct,nq_top_50_only,nq_top_50_only_w_correct,nq_top_5_only,nq_top_5_only_w_correct
+Alibaba-NLP--gte-base-en-v1.5,0.5672,0.54342,0.71434,0.64069,0.89824,0.84172,0.53932,0.5328,0.59407,0.55408,0.7853,0.70361
+BAAI--bge-large-en-v1.5,0.55306,0.53049,0.70224,0.6308,0.8882,0.83812,0.52679,0.52001,0.57959,0.54279,0.77487,0.69687
+facebook--contriever-msmarco,0.45496,0.43604,0.62637,0.56047,0.86068,0.80496,0.42857,0.42293,0.48225,0.45013,0.71905,0.64032
+intfloat--e5-large-v2,0.66958,0.63683,0.78671,0.68946,0.92979,0.8566,0.64429,0.63494,0.69419,0.63992,0.84552,0.73636

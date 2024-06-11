@@ -79,7 +79,7 @@ def get_gritlm_model(model_name_or_path: str):
     instruction_set = "e5"
     instruction_format = "gritlm"
     no_instruction = False
-    batch_size = 12
+    batch_size = 6
     max_length = None
     num_shots = None
     dtype = "bfloat16"

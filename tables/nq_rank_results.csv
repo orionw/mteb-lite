@@ -1,5 +1,8 @@
 ,model_name,nq_top_100_only,nq_top_100_only_w_correct,nq_top_10_only,nq_top_10_only_w_correct,nq_top_2_only,nq_top_2_only_w_correct,nq_top_500_only,nq_top_500_only_w_correct,nq_top_50_only,nq_top_50_only_w_correct,nq_top_5_only,nq_top_5_only_w_correct
-0,Alibaba-NLP--gte-base-en-v1.5,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0
-1,BAAI--bge-large-en-v1.5,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0,3.0
-2,facebook--contriever-msmarco,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0,4.0
-3,intfloat--e5-large-v2,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+0,Alibaba-NLP--gte-base-en-v1.5,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0
+1,BAAI--bge-large-en-v1.5,6.0,6.0,6.0,6.0,6.0,6.0,6.0,6.0,6.0,6.0,6.0,6.0
+2,Salesforce--SFR-Embedding-Mistral,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0
+3,facebook--contriever-msmarco,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0
+4,intfloat--e5-large-v2,4.0,4.0,3.0,4.0,3.0,4.0,4.0,4.0,4.0,4.0,3.0,4.0
+5,intfloat--e5-mistral-7b-instruct,3.0,3.0,4.0,3.0,4.0,3.0,3.0,3.0,3.0,3.0,4.0,3.0
+6,nvidia--NV-Embed-v1,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0

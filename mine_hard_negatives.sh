@@ -59,7 +59,8 @@ else
 fi
 
 # add "run_" to the beginning of the basename
-output_file=$(dirname $query_file)/run_$(basename $query_file)
+model_file_safe_name=$(echo $model | sed 's/\//_/g')
+output_file=$(dirname $query_file)/run_${model_file_safe_name}_$(basename $query_file)
 
 
 echo "Output file: $output_file"

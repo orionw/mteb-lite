@@ -41,7 +41,7 @@ class E5RetrievalModel(DRESModel):
             print(f"Prompt: {self.prompt}")
             input_texts = [self.prompt + q for q in queries]
 
-        return self._do_encode(input_texts)
+        return self._do_encode(input_texts, **kwargs)
 
     def encode_corpus(self, corpus: List[Dict[str, str]], **kwargs) -> np.ndarray:
         if self.doc_as_query:
@@ -52,12 +52,15 @@ class E5RetrievalModel(DRESModel):
         if self.prefix_type == 'query_or_passage':
             input_texts = ['passage: {}'.format(t) for t in input_texts]
 
-        return self._do_encode(input_texts)
+        return self._do_encode(input_texts, **kwargs)
 
     @torch.no_grad()
-    def _do_encode(self, input_texts: List[str]) -> np.ndarray:
+    def _do_encode(self, input_texts: List[str], **kwargs) -> np.ndarray:
         encoded_embeds = []
-        batch_size = 6 * self.gpu_count
+        if "batch_size" in kwargs:
+            batch_size = kwargs["batch_size"]
+        else:
+            batch_size = 256 # a large one because we're already batching 
         for start_idx in tqdm.tqdm(range(0, len(input_texts), batch_size), desc='encoding', mininterval=10):
             batch_input_texts: List[str] = input_texts[start_idx: start_idx + batch_size]
 

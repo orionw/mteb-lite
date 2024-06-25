@@ -37,17 +37,21 @@ class NvidiaRetrievalModel(DRESModel):
     def encode_queries(self, queries: List[str], **kwargs) -> np.ndarray:
         input_texts = ["Instruct: "+self.prefix+"\nQuery: " + q for q in queries]
         print(f"Prompt: {self.prefix}")
-        return self._do_encode(input_texts)
+        return self._do_encode(input_texts, **kwargs)
 
     def encode_corpus(self, corpus: List[Dict[str, str]], **kwargs) -> np.ndarray:
         input_texts = ['{} {}'.format(doc.get('title', ''), doc['text']).strip() for doc in corpus]
         # doesn't need a prefix for docs
-        return self._do_encode(input_texts)
+        return self._do_encode(input_texts, **kwargs)
 
     @torch.no_grad()
-    def _do_encode(self, input_texts: List[str], prefix: str = "") -> np.ndarray:
+    def _do_encode(self, input_texts: List[str], prefix: str = "", **kwargs) -> np.ndarray:
         encoded_embeds = []
-        batch_size = 12 * self.gpu_count
+        if "batch_size" in kwargs:
+            batch_size = kwargs["batch_size"]
+        else:
+            batch_size = 256
+
         for start_idx in tqdm.tqdm(range(0, len(input_texts), batch_size), desc='encoding', mininterval=10):
             batch_input_texts: List[str] = input_texts[start_idx: start_idx + batch_size]
 

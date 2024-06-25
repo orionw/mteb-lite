@@ -1,4 +1,4 @@
-### Downsampling MTEB Retrieval Datasets
+# Downsampling MTEB Retrieval Datasets
 
 
 ## Enviroment Setup
@@ -8,6 +8,8 @@
 
 ## To Reproduce (two steps)
 Run `bash run_all.sh NFCorpus intfloat/e5-small-v2 384 test` switching out the datasets and models you prefer. It needs the dimension (`384`) and the split of the dataset (default is `test` if none is passed).  If the model's embeddings should not be normalized, pass an additional `false` parameter after `test`.
+
+Then we need to push the shared run files to `mteb/mteb-lite-run-files`. They will be located locally in `artifacts/run_{MODEL_NAME}_{DATASET_NAME}.tsv`.
 
 
 ## To Reproduce (step by step)

@@ -33,28 +33,28 @@ echo "File safe dataset: $file_safe_dataset"
 echo "File safe model: $file_safe_model"
 
 # check if indexes/$file_safe_dataset/$file_safe_model/embedding.jsonl exists, otherwise embed
-if [ ! -f "indexes/$file_safe_dataset/$file_safe_model/embedding.jsonl" ]; then
+if [ ! -f "indexes/${file_safe_dataset}-$split/$file_safe_model/embedding.jsonl" ]; then
     echo "Embedding the corpus..."
     python embed_corpus.py --dataset $dataset --model $model --split $split
 fi
 
 # check if the faiss index exists, otherwise convert
-if [ ! -f "indexes/$file_safe_dataset/$file_safe_model/full/index" ]; then
+if [ ! -f "indexes/${file_safe_dataset}-$split/$file_safe_model/full/index" ]; then
     echo "Converting to faiss..."
-    bash convert_to_faiss.sh indexes/$file_safe_dataset/$file_safe_model/embedding.jsonl $dim_size
+    bash convert_to_faiss.sh indexes/${file_safe_dataset}-$split/$file_safe_model/embedding.jsonl $dim_size
 fi
 
 # check if the queries file exists in artifacts, otherwise download
-if [ ! -f "artifacts/$file_safe_dataset.tsv" ]; then
+if [ ! -f "artifacts/${file_safe_dataset}-$split.tsv" ]; then
     echo "Downloading queries..."
     python download_queries.py --dataset $dataset --split $split
 fi
 
 # check if the run file exists in artifacts, otherwise run
-if [ ! -f "artifacts/run_${file_safe_model}_$file_safe_dataset.tsv" ]; then
+if [ ! -f "artifacts/run_${file_safe_model}_${file_safe_dataset}-$split.tsv" ]; then
     # Mine the run file with the hard negatives per corpus embedding using `bash mine_hard_negatives.sh INDEX_FOLDER/full QUERIES_FILE NORMALIZE_TRUE_OR_FALSE BATCH_SIZE NUM_HITS MODEL_NAME`
     echo "Mining hard negatives..."
-    bash mine_hard_negatives.sh indexes/$file_safe_dataset/$file_safe_model/full artifacts/$file_safe_dataset.tsv $normalize 32 1000 $model
+    bash mine_hard_negatives.sh indexes/${file_safe_dataset}-$split/$file_safe_model/full artifacts/${file_safe_dataset}-$split.tsv $normalize 32 1000 $model
 fi
 
 # if the dataset isn't on HF, add it. This you'll have to comment out manually if it was already done (From here on out)

@@ -30,7 +30,7 @@ def embed_dataset(args, dataloader: list, model, use_vllm: bool = False):
     file_safe_model = args.model.replace("/", "_")
     file_safe_dataset = args.dataset.replace("/", "--")
 
-    file_name = f'indexes/{file_safe_dataset}/{file_safe_model}/embedding.jsonl'
+    file_name = f'indexes/{file_safe_dataset}-{args.split}/{file_safe_model}/embedding.jsonl'
     if not os.path.isdir(os.path.dirname(file_name)):
         os.makedirs(os.path.dirname(file_name))
 

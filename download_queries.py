@@ -9,7 +9,7 @@ def download(dataset_name: str, split: str):
     tasks[0].load_data()
     queries = tasks[0].queries[split]
     # save it as a csv to output path
-    output_path = f"artifacts/{dataset_name.replace('/', '--')}.tsv"
+    output_path = f"artifacts/{dataset_name.replace('/', '--')}-{split}.tsv"
     print(f"Dataset {dataset_name} has {len(queries)} queries")
 
     # save the dataset out as a tsv file

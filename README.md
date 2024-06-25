@@ -6,7 +6,7 @@
 1. Install Java `conda install -c conda-forge openjdk -y` 
 
 ## Tasks to Downsample
-The tasks to downsample are located in [tasks_to_downsample.txt](https://github.com/orionw/mteb-lite/blob/master/tasks_to_downsample.txt) and include both the name and the split. There are ~40 of them.
+The tasks to downsample are located in [tasks_to_downsample.txt](https://github.com/orionw/mteb-lite/blob/master/tasks_to_downsample.txt) and include both the name and the split. 
 
 
 ## To Reproduce (two steps)

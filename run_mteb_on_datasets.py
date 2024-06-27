@@ -20,6 +20,7 @@ SENTENCE_TRANSFORMER_MODELS = [
 E5_MODELS = [
     "intfloat/e5-small-v2",
     "intfloat/e5-large-v2",
+    "intfloat/multilingual-e5-large",
     "intfloat/e5-mistral-7b-instruct",
     "Salesforce/SFR-Embedding-Mistral"
 ]

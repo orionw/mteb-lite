@@ -8,7 +8,7 @@ data:
 image: 'registry.toolkit-sp.yul201.service-now.com/snow.research.nfl/mteb-lite:v1'
 resources:
   cpu: 64
-  mem: 128
+  mem: 256
   gpu: 1
 interactive: false
 preemptable: true

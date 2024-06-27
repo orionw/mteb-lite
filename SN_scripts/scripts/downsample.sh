@@ -35,7 +35,7 @@ for model in "${models[@]}"; do
             /home/toolkit/./eai job new -f SN_scripts/config/default.yaml --field id -- /bin/bash -c \
             "source /opt/conda/bin/activate /home/toolkit/mteb-lite/.conda && \
             bash run_all.sh $task $model ${model_dims[$model]} $split \
-            >> /home/toolkit/mteb-lite/$task-$model-$split.log 2>&1"
+            >> /home/toolkit/mteb-lite/$task-${models[@]//\//-}-$split.log 2>&1"
         done
     done
 done

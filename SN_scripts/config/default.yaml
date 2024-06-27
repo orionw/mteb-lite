@@ -1,0 +1,15 @@
+workdir: /home/toolkit/mteb-lite
+environmentVars:
+- JVM_PATH=/usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+- JAVA_HOME=/usr/bin/java
+data:
+- 'snow.research.nfl.vaibhav_adlakha_home:/home/toolkit:rw'
+- 'snow.research.nfl.vaibhav_adlakha_scratch:/scratch:rw'
+image: 'registry.toolkit-sp.yul201.service-now.com/snow.research.nfl/mteb-lite:v1'
+resources:
+  cpu: 64
+  mem: 128
+  gpu: 1
+interactive: false
+preemptable: true
+restartable: true

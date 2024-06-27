@@ -24,12 +24,17 @@ models=(
     "intfloat/e5-large-v2"
 )
 
+declare -A model_dims=(
+    [intfloat/e5-large-v2]=1024
+)
+
 for model in "${models[@]}"; do
     for task in "${tasks[@]}"; do
         for split in ${tasks_dict[$task]}; do
+            echo "Running $task $model $split"
             /home/toolkit/./eai job new -f SN_scripts/config/default.yaml --field id -- /bin/bash -c \
             "source /opt/conda/bin/activate /home/toolkit/mteb-lite/.conda && \
-            bash run_all.sh $task $model 384 $split \
+            bash run_all.sh $task $model ${model_dims[$model]} $split \
             >> /home/toolkit/mteb-lite/$task-$model-$split.out.log 2>&1"
         done
     done

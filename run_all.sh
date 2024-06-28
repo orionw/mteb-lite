@@ -44,16 +44,35 @@ if [ ! -f "indexes/${file_safe_dataset}-$split/$file_safe_model/embedding.jsonl"
     python embed_corpus.py --dataset $dataset --model $model --split $split $subsplit
 fi
 
+# check if indexes/$file_safe_dataset/$file_safe_model/embedding.jsonl exists, otherwise thow an error
+if [ ! -f "indexes/${file_safe_dataset}-$split/$file_safe_model/embedding.jsonl" ]; then
+    echo "Embedding failed. Exiting..."
+    exit 1
+fi
+
+
 # check if the faiss index exists, otherwise convert
 if [ ! -f "indexes/${file_safe_dataset}-$split/$file_safe_model/full/index" ]; then
     echo "Converting to faiss..."
     bash convert_to_faiss.sh indexes/${file_safe_dataset}-$split/$file_safe_model/embedding.jsonl $dim_size
 fi
 
+# check if the faiss index exists, otherwise thow an error
+if [ ! -f "indexes/${file_safe_dataset}-$split/$file_safe_model/full/index" ]; then
+    echo "Converting to faiss failed. Exiting..."
+    exit 1
+fi
+
 # check if the queries file exists in artifacts, otherwise download
 if [ ! -f "artifacts/${file_safe_dataset}-$split.tsv" ]; then
     echo "Downloading queries..."
     python download_queries.py --dataset $dataset --split $split $subsplit
+fi
+
+# check if the queries file exists in artifacts, otherwise thow an error
+if [ ! -f "artifacts/${file_safe_dataset}-$split.tsv" ]; then
+    echo "Downloading queries failed. Exiting..."
+    exit 1
 fi
 
 # check if the run file exists in artifacts, otherwise run

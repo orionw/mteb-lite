@@ -21,11 +21,11 @@ declare -A tasks_dict=(
 tasks=("${!tasks_dict[@]}")
 
 models=(
-    "intfloat/multilingual-e5-large"
+    "intfloat/e5-mistral-7b-instruct"
 )
 
 declare -A model_dims=(
-    [intfloat/multilingual-e5-large]=1024
+    [intfloat/e5-mistral-7b-instruct]=4096
 )
 
 for model in "${models[@]}"; do

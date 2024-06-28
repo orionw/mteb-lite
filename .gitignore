@@ -7,3 +7,4 @@ results
 datasets
 indexes
 bm25_out
+*.log

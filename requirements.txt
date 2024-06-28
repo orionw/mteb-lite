@@ -8,3 +8,4 @@ pyserini
 faiss-cpu
 einops
 bm25s[full]
+PyStemmer

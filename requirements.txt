@@ -7,4 +7,3 @@ sentence_transformers==3.0.1
 pyserini
 faiss-cpu
 einops
-bm25s[full]

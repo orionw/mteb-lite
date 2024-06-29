@@ -14,10 +14,11 @@ DOCS_VALUES = [2, 5, 10, 50, 100, 500]
 SENTENCE_TRANSFORMER_MODELS = [
     "facebook/contriever-msmarco",
     "BAAI/bge-large-en-v1.5",
-    "Alibaba-NLP/gte-base-en-v1.5"
+    "Alibaba-NLP/gte-base-en-v1.5",
 ]
 
 E5_MODELS = [
+    "intfloat/e5-small-v2",
     "intfloat/e5-large-v2",
     "intfloat/e5-mistral-7b-instruct",
     "Salesforce/SFR-Embedding-Mistral"
@@ -46,7 +47,9 @@ def load_model(model_name: str, task_name: str = None):
 
 def run_all_mteb(args):
     tasks = [args.dataset_name.split("/")[-1].replace('-', "_") + f"_top_{num}_only" for num in DOCS_VALUES]
-    tasks += [args.dataset_name + f"_top_{num}_only_w_correct" for num in DOCS_VALUES]
+    tasks += [args.dataset_name.split("/")[-1].replace('-', "_") + f"_top_{num}_only_w_correct" for num in DOCS_VALUES]
+    # now add the real task
+    tasks += ["NQ"] # to get a comparison in case I ran these wrong
     for model in SENTENCE_TRANSFORMER_MODELS + E5_MODELS + NVIDIA_MODELS:
         print(f"Running model {model}")
         evaluation = mteb.MTEB(tasks=tasks)
@@ -65,3 +68,4 @@ if __name__ == "__main__":
 
     # example usage:
     #   python run_mteb_on_datasets.py --dataset_name mteb/nq
+    #  python run_mteb_on_datasets.py --dataset_name mteb/trec-covid

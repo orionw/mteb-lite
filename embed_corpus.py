@@ -80,6 +80,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, help="The dataset name", default="NQ")
     parser.add_argument("--batch_size", type=int, default=16, help="The batch size")
     parser.add_argument("--split", type=str, default="test", help="The split to embed")
+    parser.add_argument("--subsplit", type=str, default=None, help="The subsplit to embed")
     args = parser.parse_args()
 
     # Load the dataset
@@ -87,6 +88,8 @@ if __name__ == "__main__":
     assert len(tasks) == 1, f"Expected 1 task, got {len(tasks)}"
     tasks[0].load_data()
     corpus = tasks[0].corpus[args.split]
+    if args.subsplit:
+        corpus = corpus[args.subsplit]
 
     input = [combine_doc(item) for item in corpus.values()]
     ids = list(corpus.keys())

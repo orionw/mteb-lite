@@ -24,6 +24,7 @@ fi
 # if subsplit is non-empty, set the flag
 if [ ! -z "$subsplit" ]; then
   subsplit="--subsplit $subsplit"
+fi
 
 file_safe_dataset=$(echo $dataset | sed 's/\//--/g')
 file_safe_model=$(echo $model | sed 's/\//_/g')

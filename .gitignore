@@ -4,3 +4,6 @@ get_a100.sh
 artifacts
 results
 *.pyc
+datasets
+indexes
+bm25_out

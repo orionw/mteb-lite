@@ -16,12 +16,13 @@ hits=$5
 
 # get model from index file name, e.g. /intfloat_e5-large-v2/ -> /intfloat_e5-large-v2/ -> /intfloat/e5-large-v2/
 model=$6
+subsplit=$7
 
 echo "Index folder: $index_folder"
 echo "Query file: $query_file"
 echo "L2 norm: $l2_norm"
 echo "Model: $model"
-
+echo "Subsplit: $subsplit"
 
 # the file safe dataset name is the 2nd to last dir in the index folder
 file_safe_clean_name=$(basename $(dirname $index_folder))
@@ -31,7 +32,7 @@ if [ ! -f "$query_file" ]; then
   echo "Query file does not exist, downloading..."
   # if the file exists at `/home/orionweller/retrieval-w-instructions/nfs/cached_datasets/{dataset}`
   if [ ! -f "/home/orionweller/retrieval-w-instructions/nfs/cached_datasets/$query_file/queries.tsv" ]; then
-    python ./bin/download_dataset.py --dataset $query_file --type queries
+    python ./bin/download_dataset.py --dataset $query_file --type queries $subsplit
   fi
   query_file=/home/orionweller/retrieval-w-instructions/nfs/cached_datasets/$file_safe_clean_name/queries.tsv
   query_cache=" --encoder-class auto --encoder $model"

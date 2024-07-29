@@ -18,7 +18,7 @@ for model in "${models[@]}"; do
         echo "$dataset_name $lang $split $subsplit"
         /home/toolkit/./eai job new -f SN_scripts/config/default.yaml --field id -- /bin/bash -c \
         "source /opt/conda/bin/activate /home/toolkit/mteb-lite/.conda && \
-        bash run_all.sh $task $model ${model_dims[$model]} $split $subsplit \
-        >> /home/toolkit/mteb-lite/$task-${models[@]//\//-}-$split-$subsplit.log 2>&1"
+        bash run_all.sh $dataset_name $model ${model_dims[$model]} $split $subsplit \
+        >> /home/toolkit/mteb-lite/$dataset_name-${models[@]//\//-}-$split-$subsplit.log 2>&1"
     done < tasks_to_downsample.csv
 done

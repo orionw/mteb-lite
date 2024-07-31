@@ -19,7 +19,7 @@ for model in "${models[@]}"; do
         fi
         for i in $(seq 0 $((num_shards-1))); do
             echo "$dataset_name $lang $split $subsplit $i $num_shards"
-            /home/toolkit/./eai job new -f SN_scripts/config/default.yaml --field id -- /bin/bash -c \
+            eai job new -f SN_scripts/config/default.yaml --field id -- /tk/bin/start.sh bin/bash -c \
             "source /opt/conda/bin/activate /home/toolkit/mteb-lite/.conda && \
             bash run_all_sharded_embed.sh $i $num_shards $dataset_name $model ${model_dims[$model]} $split $subsplit \
             >> /home/toolkit/mteb-lite/$dataset_name-${models[@]//\//-}-$split-$subsplit-$i-$num_shards.log 2>&1"

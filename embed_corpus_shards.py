@@ -58,7 +58,7 @@ def embed_dataset(args, corpus: list[dict[str, str]] | dict[str, list[str]], mod
     if os.path.isfile(file_name):
         os.remove(file_name)
     
-    outputs = model.encode_corpus(docs)
+    outputs = model.encode_corpus(docs, batch_size=args.batch_size)
 
     sentences = corpus_to_texts(docs)
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Embed a dataset")
     parser.add_argument("--model", type=str, help="The model name", default="intfloat/e5-mistral-7b-instruct")
     parser.add_argument("--dataset", type=str, help="The dataset name", default="NQ")
-    parser.add_argument("--batch_size", type=int, default=16, help="The batch size")
+    parser.add_argument("--batch_size", type=int, default=512, help="The batch size")
     parser.add_argument("--split", type=str, default="test", help="The split to embed")
     parser.add_argument("--subsplit", type=str, default=None, help="The subsplit to embed")
     parser.add_argument("--shard", type=int, default=0, help="The shard to embed")
@@ -98,6 +98,6 @@ if __name__ == "__main__":
     print(f"Shard {args.shard} has {len(corpus)} documents")
 
     model = mteb.get_model(args.model)
-
+    model.model = model.model.cuda()
     # Embed the dataset
     embed_dataset(args, corpus, model)

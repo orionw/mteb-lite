@@ -17,11 +17,8 @@ MIRACLRetrieval,zh,zh
 FEVER,test,en
 ClimateFEVER,test,en
 HotpotQA,test,en
-HotpotQA-PL,test,pl
 DBPedia,test,en
-DBPedia-PL,test,pl
 NQ,test,en
-NQ-PL,test,pl
 NeuCLIR2023Retrieval,rus,ru,test
 NeuCLIR2022Retrieval,zho,zh,test
 NeuCLIR2022Retrieval,rus,ru,test
@@ -30,8 +27,6 @@ NeuCLIR2022Retrieval,fas,fa,test
 NeuCLIR2023Retrieval,fas,fa,test
 RiaNewsRetrieval,test,zh
 QuoraRetrieval,test,en
-Quora-PL,test,pl
-Quora-PL,validation,pl
 TopiOCQA,validation,en
 MSMARCO-PL,test,pl
 MSMARCO,test,en

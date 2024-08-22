@@ -13,7 +13,7 @@ MIRACLRetrieval,ko,ko,dev
 MIRACLRetrieval,id,id,dev
 MIRACLRetrieval,te,te,dev
 MIRACLRetrieval,hi,hi,dev
-MIRACLRetrieval,zh,zh
+MIRACLRetrieval,zh,zh,dev
 FEVER,test,en
 ClimateFEVER,test,en
 HotpotQA,test,en

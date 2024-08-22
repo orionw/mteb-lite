@@ -28,5 +28,4 @@ NeuCLIR2023Retrieval,fas,fa,test
 RiaNewsRetrieval,test,zh
 QuoraRetrieval,test,en
 TopiOCQA,validation,en
-MSMARCO-PL,test,pl
 MSMARCO,test,en

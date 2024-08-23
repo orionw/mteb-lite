@@ -40,4 +40,4 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--use_instructions", action="store_true", help="Whether to use instructions")
     parser.add_argument("-ss", "--subsplit", type=str, default=None, help="The subsplit to download")
     args = parser.parse_args()
-    download(args.dataset_name, args.split)
+    download(args.dataset_name, args.split, args.subsplit)

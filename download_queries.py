@@ -25,6 +25,9 @@ def download(dataset_name: str, split: str, subsplit: str = None, use_instructio
     os.makedirs("artifacts", exist_ok=True)
     with open(output_path, "w") as f:
         for query_id, query in queries.items():
+            # fix for Topiocqa
+            if isinstance(query, list):
+                query = "; ".join(query)
             if instruction is not None:
                 # NOTE: this is e5-mistral-instruct specific
                 new_query =  f'Instruct: {instruction}\\nQuery: {query}'

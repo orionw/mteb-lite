@@ -36,13 +36,13 @@ echo "python -m pyserini.index.merge_faiss_indexes --prefix ./ --shard-num $shar
 python -m pyserini.index.merge_faiss_indexes --prefix ./ --shard-num $shards_total --dim $dim_size
 
 
-# # Clean up and remove all the shard folders
-for (( i=0; i<$shards_total; i++ ))
-do
-    shard_folder=$(printf "%02d" $i)
-    rm -rf $shard_folder
-    rm -rf $i
-done
+# # # Clean up and remove all the shard folders
+# for (( i=0; i<$shards_total; i++ ))
+# do
+#     shard_folder=$(printf "%02d" $i)
+#     rm -rf $shard_folder
+#     rm -rf $i
+# done
 
 
 

@@ -38,7 +38,7 @@ if [ ! -f "$query_file" ]; then
   query_cache=" --encoder-class auto --encoder $model"
 else
   echo "Query file exists, using it."
-  query_cache=" --encoder-class auto --encoder $model"
+  query_cache=" --encoder $model"
 fi
 
 
@@ -70,14 +70,13 @@ echo "Hits: $hits"
 
 
 cmd=`cat <<EOF
-python -m pyserini.search.faiss \
+python mine_hard_negatives.py \
   --threads 16 \
   --batch-size $batch_size \
   --index $index_folder \
-  --topics $query_file \
+  --query-file $query_file \
   --output $output_file \
-  --device cuda:0 \
-  --hits $hits $l2_norm $query_cache
+  --hits $hits $query_cache
 EOF
 `
 echo $cmd

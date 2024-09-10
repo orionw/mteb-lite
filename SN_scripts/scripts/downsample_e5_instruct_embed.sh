@@ -50,6 +50,9 @@ for model in "${models[@]}"; do
         fi
         num_shards=${num_shards_map[$dataset_name-$split]}
         for i in $(seq 0 $((num_shards-1))); do
+            if [ -f "indexes/$dataset_name-$split/${models[@]//\//_}/embedding_$i--$num_shards.jsonl" ]; then
+                continue
+            fi
             echo "$dataset_name $lang $split $subsplit $i $num_shards"
             eai job new -f SN_scripts/config/default.yaml --field id -- /bin/bash -c \
             "source /opt/conda/bin/activate /home/toolkit/mteb-lite/.conda && \
